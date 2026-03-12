@@ -1,0 +1,25 @@
+{
+  "name": "proyectom2_luisfereira",
+  "version": "1.0.0",
+  "description": "API estable y simple para gestionar usuarios y publicaciones.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fereiral18/ProyectoM2_LuisFereira.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Fereiral18/ProyectoM2_LuisFereira/issues"
+  },
+  "hnpm install expressomepage": "https://github.com/Fereiral18/ProyectoM2_LuisFereira#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "swagger-ui": "^5.32.0"
+  }
+}

@@ -1,19 +1,23 @@
 import express from "express"
-
-import authors from './routes/authors.js';
-import post  from './routes/post.js';
+import authorRoutes from './routes/authors.routes.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Middlewares
 
+console.log('Variables de entorno cargadas:');
+console.log('DB_USER:', process.env.DB_USER);
+console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '✓ definida' : '✗ NO definida');
+console.log('DB_NAME:', process.env.DB_NAME);
+console.log('Tipo de DB_PASSWORD:', typeof process.env.DB_PASSWORD);
 
 // Usar rutas
-app.use('/api/authors', authors);
-app.use('/api/post', post);
+app.use('/api/authors', authorRoutes);
+
+//app.use('/api/post', post);
 
 // Middleware para rutas no encontradas
 app.use((req, res) => {

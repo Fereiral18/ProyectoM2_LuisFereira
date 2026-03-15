@@ -16,8 +16,5 @@ CREATE TABLE posts (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO authors (name, email, bio) VALUES
-    ('Juan Pérez', 'juan@email.com', 'Desarrollador full stack'),
-    ('María García', 'maria@email.com', 'Diseñadora UX/UI')
-ON CONFLICT (email) DO NOTHING;
+
 

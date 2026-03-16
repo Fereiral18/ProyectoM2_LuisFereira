@@ -1,5 +1,6 @@
 import express from "express"
 import authorRoutes from './routes/authors.routes.js'
+import postRoutes from './routes/post.routes.js'
 
 const app = express();
 
@@ -15,8 +16,7 @@ console.log('Tipo de DB_PASSWORD:', typeof process.env.DB_PASSWORD);
 
 // Usar rutas
 app.use('/api/authors', authorRoutes);
-
-//app.use('/api/post', post);
+app.use('/api/posts', postRoutes);
 
 // Middleware para rutas no encontradas
 app.use((req, res) => {

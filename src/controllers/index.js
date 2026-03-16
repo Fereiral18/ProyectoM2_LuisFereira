@@ -1,3 +1,3 @@
-export * as authorRoutes from 'getAuthors.js'
-export * from 'getAuthorId.js'
-export * from 'authorCreate.js'
+export * from './authorControllers.js'
+export * from './postControllers.js'
+

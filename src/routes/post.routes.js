@@ -1,41 +1,21 @@
 import express from 'express';
-const router = express.Router();
+import * as postRoutes from '../controllers/index.js'
 
+const router = express.Router();
+const {_getPost,_getPostId,_updatePost,_deletePost, _getPostsByAuthor,_createPost} = postRoutes
 // GET todos los posts
-router.get('/', (req, res) => {
-  res.json({ 
-    posts: [
-      { id: 1, titulo: 'Post 1', contenido: 'Contenido del post 1' },
-      { id: 2, titulo: 'Post 2', contenido: 'Contenido del post 2' }
-    ] 
-  });
-});
+router.get('/', _getPost);
 
 // GET post por ID
-router.get('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ post: { id, titulo: `Post ${id}`, contenido: 'Contenido del post' } });
-});
+router.get('/:id', _getPostId);
 
 // POST nuevo post
-router.post('/', (req, res) => {
-  const { titulo, contenido } = req.body;
-  res.status(201).json({
-    mensaje: 'Post creado',
-    post: { titulo, contenido }
-  });
-});
+router.post('/', _createPost);
 
 // PUT actualizar post
-router.put('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: `Post ${id} actualizado` });
-});
+router.put('/:id', _updatePost);
 
 // DELETE post
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: `Post ${id} eliminado` });
-});
+router.delete('/:id',_deletePost);
 
-export default router;
+export default router

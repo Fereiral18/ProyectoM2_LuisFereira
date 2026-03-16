@@ -16,10 +16,6 @@ export const getAuthorId = async (req, res, next) => {
     const { id } = req.params;
     const author = await getAuthorById(id);
 
-    if (!author) {
-      return res.status(404).json({ error: "Autor no encontrado" });
-    }
-
     res.status(200).json(author);
   } catch (error) {
     next(error);
@@ -29,22 +25,10 @@ export const getAuthorId = async (req, res, next) => {
 //Crea un nuevo autor
 export const postAuthor = async (req, res, next) => {
   try {
-    const { name, email, bio } = req.body;
-    if (!name || name.trim() === "") {
-      return res.status(400).json({ error: "El nombre no puede estar vacío" });
-    }
-
-    if (!email || email.trim() === "") {
-      return res.status(400).json({ error: "El correo electrónico es obligatorio" });
-    }
-
-    const author = await createAuthors({ name, email, bio });
+    const author = await createAuthors(req.body);
     res.status(201).json(author);
 
   } catch (error) {
-    if (error.message === "EMAIL_EXISTS") {
-      return res.status(400).json({ error: "El correo electrónico ya existe" });
-    }
     next(error);
   }
 };
@@ -53,7 +37,6 @@ export const postAuthor = async (req, res, next) => {
 export const updateAuthor = async (req, res, next) => {
   try {
     const author = await updateAuthors(req.params.id, req.body);
-    if (!author) return res.status(404).json({ error: "Autor no encontrado" });
     res.status(200).json(author);
   } catch (error) { next(error); }
 };
@@ -61,7 +44,6 @@ export const updateAuthor = async (req, res, next) => {
 export const deleteAuthor = async (req, res, next) => {
   try {
     const ok = await deleteAuthors(req.params.id);
-    if (!ok) return res.status(404).json({ error: "Autor no encontrado" });
     res.status(204).send();
   } catch (error) { next(error); }
 };

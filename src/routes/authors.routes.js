@@ -1,28 +1,21 @@
-import express from 'express';
-import  * as authorRoutes  from '../controllers/authorControllers.js';
-
+import express from "express";
+import * as authorRoutes from "../controllers/authorControllers.js";
 
 const router = express.Router();
-
+const { getAuthors, getAuthorId, postAuthor, updateAuthor, deleteAuthor } = authorRoutes;
 // GET todos los autores
-router.get('/', authorRoutes.getAuthors);
+router.get("/", getAuthors);
 
 // GET autor por ID
-router.get('/:id', authorRoutes.getAuthorId);
+router.get("/:id", getAuthorId);
 
 // POST nuevo autor
-router.post('/', authorRoutes.postAuthor);
+router.post("/", postAuthor);
 
 // PUT actualizar autor
-router.put('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: `Autor ${id} actualizado` });
-});
+router.put("/:id", updateAuthor);
 
-// DELETE autor
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({ mensaje: `Autor ${id} eliminado` });
-});
+// DELETE borrar autor
+router.delete("/:id", deleteAuthor);
 
 export default router;

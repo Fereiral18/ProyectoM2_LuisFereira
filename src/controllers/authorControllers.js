@@ -1,5 +1,7 @@
-import { createAuthor, getAllAuthors, getAuthorById } from "../services/authors_services.js";
+import { createAuthors, getAllAuthors, getAuthorById, updateAuthors, deleteAuthors } from "../services/authors_services.js";
 
+
+//Trae todos los autores
 export const getAuthors = async (req, res, next) => {
   try {
     const authors = await getAllAuthors();
@@ -8,7 +10,7 @@ export const getAuthors = async (req, res, next) => {
     next(error);
   }
 };
-
+//Trae los autores por ID
 export const getAuthorId = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -24,7 +26,7 @@ export const getAuthorId = async (req, res, next) => {
   }
 };
 
-
+//Crea un nuevo autor
 export const postAuthor = async (req, res, next) => {
   try {
     const { name, email, bio } = req.body;
@@ -36,7 +38,7 @@ export const postAuthor = async (req, res, next) => {
       return res.status(400).json({ error: "El correo electrónico es obligatorio" });
     }
 
-    const author = await createAuthor({ name, email, bio });
+    const author = await createAuthors({ name, email, bio });
     res.status(201).json(author);
 
   } catch (error) {
@@ -45,4 +47,21 @@ export const postAuthor = async (req, res, next) => {
     }
     next(error);
   }
+};
+
+//Modificar un autor segun el id seleccionado
+export const updateAuthor = async (req, res, next) => {
+  try {
+    const author = await updateAuthors(req.params.id, req.body);
+    if (!author) return res.status(404).json({ error: "Autor no encontrado" });
+    res.status(200).json(author);
+  } catch (error) { next(error); }
+};
+//Elimina un autor segun el id
+export const deleteAuthor = async (req, res, next) => {
+  try {
+    const ok = await deleteAuthors(req.params.id);
+    if (!ok) return res.status(404).json({ error: "Autor no encontrado" });
+    res.status(204).send();
+  } catch (error) { next(error); }
 };

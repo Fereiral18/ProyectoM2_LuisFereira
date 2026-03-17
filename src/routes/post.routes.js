@@ -11,7 +11,7 @@ router.get('/', _getPost);
 router.get('/:id', _getPostId);
 
 //GET del posts por authorID
-router.get("/author/:authorId",validatePostAuthorIdExists,_getPostsByAuthor)
+router.get("/author/:authorId",_getPostsByAuthor)
 
 // POST nuevo post
 router.post('/',validatePostAuthorIdExists, _createPost);

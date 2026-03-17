@@ -4,9 +4,14 @@ import { pool } from "../config.js";
 export const getAllAuthors = async () => {
   const client = await pool.connect();
 
+  // Tu consulta SQL
+  const result = await client.query("SELECT * FROM authors ORDER BY id");
   try {
-    // Tu consulta SQL
-    const result = await client.query("SELECT * FROM authors ORDER BY id");
+      if (result.rows.length === 0) {
+      return res.status(404).json({
+        error: "El ID de autor no existe en la base de datos"
+      });
+    }
     return result.rows;
   } catch (error) {
     console.error("Error en la consulta:", error);

@@ -38,7 +38,10 @@ export const _getPostsByAuthor = async (req, res, next) => {
 export const _createPost = async (req, res, next) => {
   try {
     const post = await createPostService(req.body);
-    res.status(201).json(post);
+    res.status(201).json({
+      message: 'Post creado exitosamente',
+      post: post
+    });
   } catch (error) {
     next(error);
   }

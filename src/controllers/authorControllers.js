@@ -26,7 +26,10 @@ export const getAuthorId = async (req, res, next) => {
 export const postAuthor = async (req, res, next) => {
   try {
     const author = await createAuthors(req.body);
-    res.status(201).json(author);
+      res.status(200).json({ 
+      message: "Autor Creado exitosamente",
+      content: author 
+    });
 
   } catch (error) {
     next(error);
@@ -37,13 +40,19 @@ export const postAuthor = async (req, res, next) => {
 export const updateAuthor = async (req, res, next) => {
   try {
     const author = await updateAuthors(req.params.id, req.body);
-    res.status(200).json(author);
+      res.status(200).json({ 
+      message: "El autor ha sido modificado exitoramente!",
+      id: req.params.id 
+    });
   } catch (error) { next(error); }
 };
 //Elimina un autor segun el id
 export const deleteAuthor = async (req, res, next) => {
   try {
     const ok = await deleteAuthors(req.params.id);
-    res.status(204).send();
+      res.status(200).json({ 
+      message: "authors eliminado exitosamente",
+      id: req.params.id 
+    });
   } catch (error) { next(error); }
 };

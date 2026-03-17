@@ -64,7 +64,7 @@ export const _createPost = async (req, res, next) => {
   try {
     const post = await createPostService(req.body);
     res.status(201).json({
-      message: 'Post creado exitosamente',
+      message: 'Post creado exitosamente!',
       post: post
     });
   } catch (error) {
@@ -86,7 +86,10 @@ export const _deletePost = async (req, res, next) => {
   try {
     const deleted = await deletePostService(req.params.id);
     if (!deleted) return res.status(404).json({ error: "Post no encontrado" });
-    res.status(204).send();
+      res.status(200).json({ 
+      message: "Post eliminado exitosamente",
+      id: req.params.id 
+    });;
   } catch (error) {
     next(error);
   }

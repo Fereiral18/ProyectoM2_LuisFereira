@@ -5,7 +5,7 @@ import { validateAuthorData, validateAuthorId, validatePostAuthorIdExists } from
 import { pool } from '../../src/config.js'
 
 // Mock del pool
-vi.mock('../../../config.js', () => ({
+vi.mock('../../src/config.js', () => ({
   pool: {
     query: vi.fn()
   }
@@ -192,10 +192,9 @@ describe('Validation Middlewares', () => {
       await validatePostAuthorIdExists(req, res, next)
       
       expect(res.status).toHaveBeenCalledWith(404)
-      expect(res.json).toHaveBeenCalledWith({
-        error: 'Author no encontrado',
-        message: 'El author con id 999 no existe'
-      })
+        expect(res.json).toHaveBeenCalledWith({
+      error: 'No existe autor con ID 999' 
+    })
     })
 
     it('debería pasar si el author existe', async () => {
@@ -204,9 +203,9 @@ describe('Validation Middlewares', () => {
       pool.query.mockResolvedValue({ rows: [mockAuthor] })
       
       await validatePostAuthorIdExists(req, res, next)
-      
-      expect(req.author).toEqual(mockAuthor)
-      expect(next).toHaveBeenCalled()
+      expect(req.authorData).toEqual(mockAuthor)
+     expect(req.authorId).toBe(1)  // También guarda authorId
+    expect(next).toHaveBeenCalled()
     })
   })
 })

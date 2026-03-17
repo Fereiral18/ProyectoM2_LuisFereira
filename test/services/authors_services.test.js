@@ -8,7 +8,7 @@ import {
 } from '../../src/services/authors_services.js'
 import { pool } from '../../src/config.js'
 
-vi.mock('../../../config.js', () => ({
+vi.mock('../../src/config.js', () => ({
   pool: {
     query: vi.fn(),
     connect: vi.fn()

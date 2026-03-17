@@ -78,36 +78,39 @@ export const validateAuthorId = async (req, res, next) => {
     }
   }}
 
-  export const validatePostAuthorIdExists = async (req, res, next) => {
-  const author_id = req.body.author_id || req.params.author_id;
-  
-  if (!author_id) {
-    return res.status(400).json({ error: 'author_id es requerido' });
-  }
-  
+
+export const validatePostAuthorIdExists = async (req, res, next) => {
   try {
+    // Para GET /author/:authorId
+    const authorId = req.params.authorId || req.body.author_id;
+    
+    if (!authorId) {
+      return res.status(400).json({ error: 'author_id es requerido' });
+    }
+
+    const authorIdNum = parseInt(authorId);
+    if (isNaN(authorIdNum)) {
+      return res.status(400).json({ error: 'author_id debe ser un número' });
+    }
+
+    // Verificar en tabla authors
     const result = await pool.query(
       'SELECT id, name FROM authors WHERE id = $1',
-      [author_id]
-
-    
+      [authorIdNum]
     );
     
     if (result.rows.length === 0) {
-      return res.status(404).json({
-        error: 'Author no encontrado',
-        message: `El author con id ${author_id} no existe`
+      return res.status(404).json({ 
+        error: `No existe autor con ID ${authorIdNum}` 
       });
     }
-    
-    // Opcional: agregar el author al request para uso posterior
-    req.author = result.rows[0];
+
+    req.authorData = result.rows[0];
+    req.authorId = authorIdNum;
     next();
     
   } catch (error) {
-    console.error('Error validando author:', error);
-    res.status(500).json({ error: 'Error validando author' });
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Error validando autor' });
   }
 };
-
-

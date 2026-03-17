@@ -26,14 +26,39 @@ export const _getPostId = async (req, res, next) => {
   }
 };
 
-export const _getPostsByAuthor = async (req, res, next) => {
+export const _getPostsByAuthor = async (req, res) => {
   try {
-    const posts = await getPostsByAuthorService(req.params.authorId);
-    res.status(200).json(posts);
+    const { authorId } = req.params;
+    
+    // Validar que el authorId sea un número válido
+    if (isNaN(authorId) || parseInt(authorId) <= 0) {
+      return res.status(400).json({ 
+        error: 'El ID del autor debe ser un número válido' 
+      });
+    }
+
+    const posts = await getPostsByAuthorService(parseInt(authorId));
+    
+    if (posts.length === 0) {
+      return res.status(404).json({ 
+        message: 'No se encontraron posts para este autor',
+        author_id: parseInt(authorId)
+      });
+    }
+    
+    res.json({
+      author_id: parseInt(authorId),
+      total: posts.length,
+      posts: posts
+    });
   } catch (error) {
-    next(error);
+    console.error('Error al obtener posts por autor:', error);
+    res.status(500).json({ 
+      error: 'Error interno del servidor' 
+    });
   }
-};
+}
+
 
 export const _createPost = async (req, res, next) => {
   try {

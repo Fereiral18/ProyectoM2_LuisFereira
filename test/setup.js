@@ -9,6 +9,18 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
+   // Limpieza de seguridad
+    if (tempAuthorId) {
+      await deleteAuthorService(tempAuthorId);
+    }
+    
+    const allAuthors = await getAllAuthorsService();
+    const duplicado = allAuthors.find(a => a.email === "repetido@test.com");
+    if (duplicado) {
+      await deleteAuthorService(duplicado.id);
+    }
+    
+    console.log("🧹 Base de datos de autores limpia.");
   // Cerrar conexiones
   await pool.end()
 })

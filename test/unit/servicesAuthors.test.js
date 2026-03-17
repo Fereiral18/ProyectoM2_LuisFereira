@@ -1,5 +1,5 @@
 import { describe, test, expect, afterAll } from 'vitest';
-import { createAuthors, deleteAuthors, getAllAuthors, updateAuthors } from '../../services/authors_services';
+import { createAuthors, deleteAuthors, getAllAuthors, updateAuthors } from '../../src/services/authors_services.js';
 
 
 describe('Authors Service - Unit Tests (DB Real)', () => {
@@ -17,7 +17,7 @@ describe('Authors Service - Unit Tests (DB Real)', () => {
   test('createAuthorService debe lanzar error si el email ya existe', async () => {
     const duplicado = { name: "Otro", email: "repetido@test.com", bio: "Bio" };
     
-    try { await createAuthors(duplicado); } catch (e) { /* ignore */ }
+    try { await createAuthors(duplicado); } catch (e) {}
     
     await expect(createAuthors(duplicado)).rejects.toThrow("EMAIL_EXISTS");
   });

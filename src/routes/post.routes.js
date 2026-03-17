@@ -10,6 +10,9 @@ router.get('/', _getPost);
 // GET post por ID
 router.get('/:id', _getPostId);
 
+//GET del posts por authorID
+router.get("/author/:authorId",_getPostsByAuthor)
+
 // POST nuevo post
 router.post('/',validatePostAuthorIdExists, _createPost);
 

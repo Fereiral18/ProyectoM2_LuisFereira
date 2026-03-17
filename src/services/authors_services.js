@@ -5,13 +5,8 @@ export const getAllAuthors = async () => {
   const client = await pool.connect();
 
   // Tu consulta SQL
-  const result = await client.query("SELECT * FROM authors ORDER BY id");
   try {
-      if (result.rows.length === 0) {
-      return res.status(404).json({
-        error: "El ID de autor no existe en la base de datos"
-      });
-    }
+  const result = await client.query("SELECT * FROM authors ORDER BY id");
     return result.rows;
   } catch (error) {
     console.error("Error en la consulta:", error);
@@ -30,14 +25,24 @@ export const getAuthorById = async (id) => {
 
 //Añade un autor nuevo a la base de datos
 export const createAuthors = async ({ name, email, bio }) => {
-  const result = await pool.query(
-    `INSERT INTO authors (name, email, bio)
-     VALUES ($1,$2,$3)
-     RETURNING *`,
-    [name, email, bio],
-  );
+  try {
+    const result = await pool.query(
+      `INSERT INTO authors (name, email, bio)
+       VALUES ($1, $2, $3)
+       RETURNING *`,
+      [name, email, bio],
+    );
 
-  return result.rows[0];
+    return result.rows[0];
+  } catch (error) {
+    // PostgreSQL error code for unique violation is '23505'
+    if (error.code === '23505' && error.constraint === 'authors_email_key') {
+      throw new Error('EMAIL_EXISTS');
+    }
+    
+    // Si es otro tipo de error, lo relanzamos
+    throw error;
+  }
 };
 //Modifica los valores deseados del autor en la base de datos
 export const updateAuthors = async (id, { name, email, bio }) => {

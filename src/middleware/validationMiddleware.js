@@ -11,6 +11,13 @@ export const validateAuthorData = (req, res, next) => {
     });
   }
 
+  // Validar longitud del nombre (después de validar que existe)
+  if (name.length < 3) {
+    return res.status(400).json({ 
+      error: "El nombre debe tener al menos 3 caracteres" 
+    });
+  }
+
   // Validar email
   if (!email || email.trim() === "") {
     return res.status(400).json({ 
@@ -26,17 +33,9 @@ export const validateAuthorData = (req, res, next) => {
     });
   }
 
-  // Validar longitud del nombre
-  if (name.length < 3) {
-    return res.status(400).json({ 
-      error: "El nombre debe tener al menos 3 caracteres" 
-    });
-  }
-
   // Si todo está bien, continuar
   next();
 };
-
 // Middleware para validar ID
 export const validateAuthorId = async (req, res, next) => {
   const { id } = req.params;
@@ -58,7 +57,7 @@ export const validateAuthorId = async (req, res, next) => {
     // Verificar si existe el usuario
     if (result.rowCount === 0) { // También puedes usar result.rows.length === 0
       return res.status(404).json({
-        error: `No se encontró ningún autor con ID: ${id}`
+        error: `No se encontró ningún autor con ese id`
       });
     }
 

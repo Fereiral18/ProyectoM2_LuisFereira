@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Fereiral18/ProyectoM2_LuisFereira/issues"
   },
-  "hnpm install expressomepage": "https://github.com/Fereiral18/ProyectoM2_LuisFereira#readme",
+  "npm install expresshomepage": "https://github.com/Fereiral18/ProyectoM2_LuisFereira#readme",
   "dependencies": {
     "dotenv": "^17.3.1",
     "express": "^5.2.1",

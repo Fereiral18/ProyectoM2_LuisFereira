@@ -2,6 +2,7 @@ import fs from 'fs';
 import process from 'node:process';
 import pg from 'pg';
 
+
 // Solo carga el .env si estás en local (desarrollo)
 if (fs.existsSync('.env')) {
   process.loadEnvFile('.env');

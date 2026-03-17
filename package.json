@@ -2,7 +2,7 @@
   "name": "proyectom2_luisfereira",
   "version": "1.0.0",
   "description": "API estable y simple para gestionar usuarios y publicaciones.",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",

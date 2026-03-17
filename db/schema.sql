@@ -14,6 +14,10 @@ CREATE TABLE posts (
     content TEXT NOT NULL,
     published BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    CONSTRAINT fk_author
+        FOREIGN KEY(author_id)
+        REFERENCES authors(id)
+        ON DELETE CASCADE
 );
 
 

@@ -14,41 +14,41 @@ API RESTful desarrollada con Node.js, Express y PostgreSQL para la gestión de a
 - **Railway** - Plataforma de despliegue
 
 ## 📁 Estructura del Proyecto
-├── db/
-│ ├── schema.sql # Esquema de creación de tablas
-│ └── seed.sql # Datos de prueba para la BD
-├── src/
-│ ├── controllers/
-│ │ ├── authorControllers.js # Lógica de endpoints de autores
-│ │ ├── postControllers.js # Lógica de endpoints de posts
-│ │ └── index.js # Punto de entrada de controladores
-│ ├── middleware/
-│ │ └── validationMiddleware.js # Validaciones de datos
-│ └── services/
-│ ├── authors_services.js # Lógica de negocio de autores
-│ └── post_services.js # Lógica de negocio de posts
-├── routes/
-│ ├── authors.routes.js # Rutas de autores
-│ └── post.routes.js # Rutas de posts
-├── test/
-│ ├── middleware/
-│ │ └── validationMiddleware.test.js
-│ ├── services/
-│ │ ├── authors_services.test.js
-│ │ └── posts_services.test.js
-│ ├── unit/
-│ │ └── servicesAuthors.test.js
-│ └── setup.js # Configuración de tests
-├── swagger/ # Documentación OpenAPI/Swagger
-├── .env.example # Variables de entorno de ejemplo
-├── .gitignore
-├── app.js # Configuración principal de Express
-├── config.js # Configuración global (BD, variables)
-├── package.json
-├── server.js # Punto de entrada del servidor
-└── README.md
+📦 ProyectoM2_LuisFereira
+├── 📂 db
+│ ├── 📄 schema.sql
+│ └── 📄 seed.sql
+├── 📂 src
+│ ├── 📂 controllers
+│ │ ├── 📄 authorControllers.js
+│ │ ├── 📄 postControllers.js
+│ │ └── 📄 index.js
+│ ├── 📂 middleware
+│ │ └── 📄 validationMiddleware.js
+│ └── 📂 services
+│ ├── 📄 authors_services.js
+│ └── 📄 post_services.js
+├── 📂 routes
+│ ├── 📄 authors.routes.js
+│ └── 📄 post.routes.js
+├── 📂 test
+│ ├── 📂 middleware
+│ │ └── 📄 validationMiddleware.test.js
+│ ├── 📂 services
+│ │ ├── 📄 authors_services.test.js
+│ │ └── 📄 posts_services.test.js
+│ ├── 📂 unit
+│ │ └── 📄 servicesAuthors.test.js
+│ └── 📄 setup.js
+├── 📂 swagger
+├── 📄 .env.example
+├── 📄 .gitignore
+├── 📄 app.js
+├── 📄 config.js
+├── 📄 package.json
+├── 📄 server.js
+└── 📄 README.md
 
-text
 
 ## 🚀 Configuración Local
 

@@ -7,7 +7,8 @@
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^4.1.0",
     "@vitest/ui": "^4.1.0",
     "supertest": "^7.2.2",
     "vitest": "^4.1.0"

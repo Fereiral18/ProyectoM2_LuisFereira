@@ -68,10 +68,20 @@ ProyectoM2_LuisFereira/
 1. **Clonar el repositorio**
 git clone <url-del-repositorio>
 cd <nombre-del-proyecto>
-Instalar dependencias
 
+Instalar dependencias:
+
+"dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "pg": "^8.20.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui": "^5.32.0",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
 bash
+
 npm install
+
 Configurar variables de entorno
 
 bash
@@ -101,21 +111,23 @@ CREATE DATABASE nombre_bd;
 # Ejecuta los scripts de creación y seed desde la carpeta db
 psql -U postgres -d nombre_bd -f db/schema.sql
 psql -U postgres -d nombre_bd -f db/seed.sql
+
 Iniciar el servidor
 
 bash
 # Modo desarrollo (con hot-reload)
 npm run dev
+El servidor estará disponible en http://localhost:3000
 
 # Modo producción
 npm start
-El servidor estará disponible en http://localhost:3000
 ```
 📚 Documentación de la API (Swagger)
 ```bash
 La documentación interactiva de la API está disponible a través de Swagger UI:
 
-URL local: http://localhost:3000/api-docs
+URL local: http://localhost:3000/openapi
+URL produccion: https://proyectom2luisfereira-production.up.railway.app/openapi/
 
 Archivo OpenAPI: /swagger/openapi.yaml
 
@@ -186,6 +198,7 @@ npm run test:coverage
 
 # Ejecutar tests específicos
 npm test -- test/services/authors_services.test.js
+
 Tests Implementados
 ✅ CRUD de autores
 
@@ -282,6 +295,11 @@ DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=generado_por_railway
 DB_NAME=railway
+
+Accede:
+API: https://proyectom2luisfereira-production.up.railway.app/
+Docs: https://proyectom2luisfereira-production.up.railway.app/openapi/
+
 🛠️ Scripts Disponibles
 bash
 # Desarrollo
@@ -298,6 +316,7 @@ npm run db:create     # Crea la base de datos
 npm run db:migrate    # Ejecuta schema.sql
 npm run db:seed       # Ejecuta seed.sql
 npm run db:reset      # Resetea la base de datos
+
 🔒 Middleware de Validación
 El proyecto incluye un middleware de validación (validationMiddleware.js) que verifica:
 

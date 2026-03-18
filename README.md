@@ -71,13 +71,16 @@ cd <nombre-del-proyecto>
 
 Instalar dependencias:
 
-"dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "pg": "^8.20.0",
+    "dotenv": "^17.3.1", -> npm install dotenv
+    "express": "^5.2.1", -> npm i express
+    "pg": "^8.20.0", -> npm install pg
+    
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui": "^5.32.0",
+    "swagger-ui": "^5.32.0", ----> npm install swagger-ui-express swagger-jsdoc
     "swagger-ui-express": "^5.0.1",
-    "yamljs": "^0.3.0"
+    
+    "yamljs": "^0.3.0" -> npm install yaml
+
 bash
 
 npm install

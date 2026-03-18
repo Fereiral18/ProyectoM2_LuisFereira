@@ -14,6 +14,8 @@ API RESTful desarrollada con Node.js, Express y PostgreSQL para la gestión de a
 - **Railway** - Plataforma de despliegue
 
 ## 📁 Estructura del Proyecto
+```bash
+
 ProyectoM2_LuisFereira/
 ├── .env.example                  # Variables de entorno de ejemplo
 ├── .gitignore                    # Ignora node_modules, .env, etc
@@ -51,7 +53,7 @@ ProyectoM2_LuisFereira/
 ├── swagger/                       # Documentación OpenAPI/Swagger
 │   └── openapi.yaml               # Especificación de la API
 └── docs/                          # Documentación adicional (opcional)
-
+...
 ## 🚀 Configuración Local
 
 ### Prerrequisitos

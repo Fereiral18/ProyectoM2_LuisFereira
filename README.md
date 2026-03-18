@@ -14,41 +14,43 @@ API RESTful desarrollada con Node.js, Express y PostgreSQL para la gestión de a
 - **Railway** - Plataforma de despliegue
 
 ## 📁 Estructura del Proyecto
-📦 ProyectoM2_LuisFereira
+ProyectoM2_LuisFereira/
+├── .env.example                  # Variables de entorno de ejemplo
+├── .gitignore                    # Ignora node_modules, .env, etc
+├── package.json                  # Dependencias y scripts
+├── package-lock.json             # Versiones exactas de dependencias
+├── README.md                     # Documentación del proyecto
 ├── db/
-│ ├── schema.sql
-│ └── seed.sql
+│   ├── schema.sql                # CREATE TABLE + constraints (FKs, índices)
+│   └── seed.sql                  # INSERT de prueba para autores y posts
 ├── src/
-│ ├── controllers/
-│ │ ├── authorControllers.js
-│ │ ├── postControllers.js
-│ │ └── index.js
-│ ├── middleware/
-│ │ └── validationMiddleware.js
-│ └── services/
-│ ├── authors_services.js
-│ └── post_services.js
-├── routes/
-│ ├── authors.routes.js
-│ └── post.routes.js
+│   ├── app.js                    # Configuración de Express y middlewares globales
+│   ├── server.js                 # Arranca el servidor (listen)
+│   ├── config.js                 # Pool de PostgreSQL usando variables de entorno
+│   ├── routes/
+│   │   ├── authors.routes.js     # Rutas CRUD para autores
+│   │   └── post.routes.js        # Rutas CRUD para posts
+│   ├── controllers/
+│   │   ├── authorControllers.js  # Manejadores de peticiones de autores
+│   │   ├── postControllers.js    # Manejadores de peticiones de posts
+│   │   └── index.js              # Exportación centralizada de controladores
+│   ├── services/
+│   │   ├── authors_services.js   # Lógica de negocio y consultas SQL de autores
+│   │   └── post_services.js      # Lógica de negocio y consultas SQL de posts
+│   └── middleware/
+│       └── validationMiddleware.js # Validación de datos de entrada
 ├── test/
-│ ├── middleware/
-│ │ └── validationMiddleware.test.js
-│ ├── services/
-│ │ ├── authors_services.test.js
-│ │ └── posts_services.test.js
-│ ├── unit/
-│ │ └── servicesAuthors.test.js
-│ └── setup.js
-├── swagger/
-├── .env.example
-├── .gitignore
-├── app.js
-├── config.js
-├── package.json
-├── server.js
-└── README.md
-
+│   ├── unit/                     # Tests unitarios
+│   │   └── servicesAuthors.test.js # Tests de servicios de autores
+│   ├── services/                  # Tests de servicios
+│   │   ├── authors_services.test.js
+│   │   └── posts_services.test.js
+│   ├── middleware/
+│   │   └── validationMiddleware.test.js # Tests de validaciones
+│   └── setup.js                   # Configuración global para tests
+├── swagger/                       # Documentación OpenAPI/Swagger
+│   └── openapi.yaml               # Especificación de la API
+└── docs/                          # Documentación adicional (opcional)
 
 ## 🚀 Configuración Local
 

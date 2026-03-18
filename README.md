@@ -15,39 +15,39 @@ API RESTful desarrollada con Node.js, Express y PostgreSQL para la gestión de a
 
 ## 📁 Estructura del Proyecto
 📦 ProyectoM2_LuisFereira
-├── 📂 db
-│ ├── 📄 schema.sql
-│ └── 📄 seed.sql
-├── 📂 src
-│ ├── 📂 controllers
-│ │ ├── 📄 authorControllers.js
-│ │ ├── 📄 postControllers.js
-│ │ └── 📄 index.js
-│ ├── 📂 middleware
-│ │ └── 📄 validationMiddleware.js
-│ └── 📂 services
-│ ├── 📄 authors_services.js
-│ └── 📄 post_services.js
-├── 📂 routes
-│ ├── 📄 authors.routes.js
-│ └── 📄 post.routes.js
-├── 📂 test
-│ ├── 📂 middleware
-│ │ └── 📄 validationMiddleware.test.js
-│ ├── 📂 services
-│ │ ├── 📄 authors_services.test.js
-│ │ └── 📄 posts_services.test.js
-│ ├── 📂 unit
-│ │ └── 📄 servicesAuthors.test.js
-│ └── 📄 setup.js
-├── 📂 swagger
-├── 📄 .env.example
-├── 📄 .gitignore
-├── 📄 app.js
-├── 📄 config.js
-├── 📄 package.json
-├── 📄 server.js
-└── 📄 README.md
+├── db/
+│ ├── schema.sql
+│ └── seed.sql
+├── src/
+│ ├── controllers/
+│ │ ├── authorControllers.js
+│ │ ├── postControllers.js
+│ │ └── index.js
+│ ├── middleware/
+│ │ └── validationMiddleware.js
+│ └── services/
+│ ├── authors_services.js
+│ └── post_services.js
+├── routes/
+│ ├── authors.routes.js
+│ └── post.routes.js
+├── test/
+│ ├── middleware/
+│ │ └── validationMiddleware.test.js
+│ ├── services/
+│ │ ├── authors_services.test.js
+│ │ └── posts_services.test.js
+│ ├── unit/
+│ │ └── servicesAuthors.test.js
+│ └── setup.js
+├── swagger/
+├── .env.example
+├── .gitignore
+├── app.js
+├── config.js
+├── package.json
+├── server.js
+└── README.md
 
 
 ## 🚀 Configuración Local

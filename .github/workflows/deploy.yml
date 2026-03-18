@@ -1,0 +1,19 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches: [ main ]  # Ajusta según tu branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Railway
+        uses: railwayapp/actions/deploy@v2
+        with:
+          railway_token: ${{ secrets.RAILWAY_TOKEN }}
+          # Opcional: si quieres desplegar servicios específicos
+          # service: "trustworthy-peace"  # o el nombre exacto

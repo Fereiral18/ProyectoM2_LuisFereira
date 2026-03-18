@@ -53,7 +53,7 @@ ProyectoM2_LuisFereira/
 ├── swagger/                       # Documentación OpenAPI/Swagger
 │   └── openapi.yaml               # Especificación de la API
 └── docs/                          # Documentación adicional (opcional)
-...
+```
 ## 🚀 Configuración Local
 
 ### Prerrequisitos
@@ -110,7 +110,8 @@ npm run dev
 # Modo producción
 npm start
 El servidor estará disponible en http://localhost:3000
-
+```
+```bash
 📚 Documentación de la API (Swagger)
 La documentación interactiva de la API está disponible a través de Swagger UI:
 
@@ -156,6 +157,8 @@ bash
 curl -X POST http://localhost:3000/api/posts \
   -H "Content-Type: application/json" \
   -d '{"title": "Cien años de soledad", "content": "Muchos años después...", "author_id": 1}'
+```
+```bash
 🧪 Tests
 El proyecto utiliza Vitest para pruebas unitarias y de integración.
 
@@ -195,7 +198,7 @@ Tests Implementados
 ✅ Relaciones entre tablas
 
 ✅ Casos borde y validaciones
-
+```
 🗄️ Esquema de Base de Datos
 Archivo: db/schema.sql
 sql
@@ -232,6 +235,7 @@ INSERT INTO posts (title, content, author_id) VALUES
     ('Post 1', 'Contenido del post 1', 1),
     ('Post 2', 'Contenido del post 2', 1),
     ('Post 3', 'Contenido del post 3', 2);
+```bash
 🚢 Despliegue en Railway
 Pasos para el deploy
 Preparar el proyecto
@@ -301,7 +305,7 @@ Posts: título y contenido requeridos, author_id válido
 IDs: validación de parámetros numéricos
 
 Datos de entrada: sanitización básica
-
+```
 📊 Cobertura de Tests
 Los tests cubren:
 
@@ -342,7 +346,7 @@ Tests: Ejecuta siempre los tests antes de hacer deploy
 Documentación: Mantén actualizada la documentación Swagger
 
 Railway: La plataforma provee SSL automático y backups
-
+```bash
 🤝 Contribución
 Fork el proyecto
 
@@ -359,4 +363,4 @@ ISC
 
 📧 Contacto
 Para preguntas o soporte, contacta al equipo de desarrollo.
-...
+```

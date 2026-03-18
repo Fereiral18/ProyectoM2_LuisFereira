@@ -199,7 +199,9 @@ Tests Implementados
 
 ✅ Casos borde y validaciones
 ```
+
 🗄️ Esquema de Base de Datos
+```bash
 Archivo: db/schema.sql
 sql
 -- Tabla de autores
@@ -235,6 +237,7 @@ INSERT INTO posts (title, content, author_id) VALUES
     ('Post 1', 'Contenido del post 1', 1),
     ('Post 2', 'Contenido del post 2', 1),
     ('Post 3', 'Contenido del post 3', 2);
+```
 🚢 Despliegue en Railway
 ```bash
 Pasos para el deploy

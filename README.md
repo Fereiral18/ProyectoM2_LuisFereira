@@ -1,4 +1,4 @@
-
+...
 # API REST - Gestión de Autores y Posts
 
 API RESTful desarrollada con Node.js, Express y PostgreSQL para la gestión de autores y publicaciones. Diseñada para ser desplegada en Railway.
@@ -357,3 +357,4 @@ ISC
 
 📧 Contacto
 Para preguntas o soporte, contacta al equipo de desarrollo.
+...

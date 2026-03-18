@@ -64,8 +64,8 @@ ProyectoM2_LuisFereira/
 
 ### Pasos de Instalación
 
-1. **Clonar el repositorio**
 ```bash
+1. **Clonar el repositorio**
 git clone <url-del-repositorio>
 cd <nombre-del-proyecto>
 Instalar dependencias
@@ -111,8 +111,8 @@ npm run dev
 npm start
 El servidor estará disponible en http://localhost:3000
 ```
-```bash
 📚 Documentación de la API (Swagger)
+```bash
 La documentación interactiva de la API está disponible a través de Swagger UI:
 
 URL local: http://localhost:3000/api-docs
@@ -158,8 +158,8 @@ curl -X POST http://localhost:3000/api/posts \
   -H "Content-Type: application/json" \
   -d '{"title": "Cien años de soledad", "content": "Muchos años después...", "author_id": 1}'
 ```
-```bash
 🧪 Tests
+```bash
 El proyecto utiliza Vitest para pruebas unitarias y de integración.
 
 Estructura de Tests
@@ -235,8 +235,8 @@ INSERT INTO posts (title, content, author_id) VALUES
     ('Post 1', 'Contenido del post 1', 1),
     ('Post 2', 'Contenido del post 2', 1),
     ('Post 3', 'Contenido del post 3', 2);
-```bash
 🚢 Despliegue en Railway
+```bash
 Pasos para el deploy
 Preparar el proyecto
 
@@ -346,8 +346,8 @@ Tests: Ejecuta siempre los tests antes de hacer deploy
 Documentación: Mantén actualizada la documentación Swagger
 
 Railway: La plataforma provee SSL automático y backups
-```bash
 🤝 Contribución
+```bash
 Fork el proyecto
 
 Crea tu rama (git checkout -b feature/NuevaCaracteristica)
